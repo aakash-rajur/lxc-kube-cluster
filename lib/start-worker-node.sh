@@ -18,7 +18,7 @@ EOF
 
 joincmd=$(procure_joincmd "$master_node_name")
 cat <<EOF|lxc exec "$worker_node_name" bash
-echo "$joincmd" > joincommand.sh
+echo "$joincmd --ignore-preflight-errors=all" > joincommand.sh
 chmod +x joincommand.sh
 ./joincommand.sh
 EOF
